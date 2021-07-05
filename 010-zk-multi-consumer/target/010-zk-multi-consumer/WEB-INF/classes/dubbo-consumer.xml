@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://dubbo.apache.org/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://dubbo.apache.org/schema/dubbo http://dubbo.apache.org/schema/dubbo/dubbo.xsd">
+
+    <dubbo:application name="010-zk-consumer-multi"/>
+    <!--    使用zk注册中心，指定中心地址和端口号     -->
+    <dubbo:registry address="zookeeper://localhost:2181"/>
+    <!--    引用远程服务接口 id 远程服务接口对象名称  interface 调用远程接口的全限定类名  url 访问服务接口的地址   -->
+    <dubbo:reference interface="icu.junyao.dubbo.service.UserService" id="userService" version="1.0.0" />
+    <dubbo:reference interface="icu.junyao.dubbo.service.UserService" id="userService2" version="2.0.0" />
+</beans>
